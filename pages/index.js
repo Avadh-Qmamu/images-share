@@ -101,8 +101,9 @@ import React from 'react';
 const Home = () => {
   //interface IWebShareImageProps {}
   const onShare = async() => {
-    const response = await fetch('https://picsum.photos/200/300');
+    const response = await fetch('home/avadh/Downloads/one.jpeg');
   const blob = await response.blob();
+  console.log(blob);
   const filesArray = [
     new File(
       [blob],
@@ -113,6 +114,7 @@ const Home = () => {
       }
    )
   ];
+  console.log(filesArray)
   const shareData = {
     files: filesArray,
   };
