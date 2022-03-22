@@ -159,7 +159,7 @@ const Home = () => {
           <a href="#" className="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      {/* <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button> */}
+      <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button>
     </>
   )
 }
