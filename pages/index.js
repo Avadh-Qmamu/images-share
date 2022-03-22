@@ -102,17 +102,17 @@ import Image from 'next/image'
 
 const Home = () => {
   //interface IWebShareImageProps {}
-  const onShare = async() => {
+  const onShare = async () => {
 
     ///creating images
     const element = document.getElementById("capture");
     const canvas = await html2canvas(element, { useCORS: true });
 
     const data = canvas.toDataURL("image/jpg");
-   // const link = document.createElement("a");
-  //  const response = await fetch(data);
-  //  const blob = await response.blob();
-  //  console.log(blob)
+    // const link = document.createElement("a");
+    //  const response = await fetch(data);
+    //  const blob = await response.blob();
+    //  console.log(blob)
     // if (typeof link.download === "number") {
     //   console.log(data);
     //   link.href = data;
@@ -124,50 +124,42 @@ const Home = () => {
     // } else {
     //   window.open(data);
     // }
-  
+
 
     const response = await fetch(data);
-  const blob = await response.blob();
-  console.log(blob);
-  const filesArray = [
-    new File(
-      [blob],
-      'meme.jpg',
-      {
-        type: "image/jpeg",
-        lastModified: new Date().getTime()
-      }
-   )
-  ];
-  console.log(filesArray)
-  const shareData = {
-    files: filesArray,
-  };
-  navigator.share(shareData);
+    const blob = await response.blob();
+    console.log(blob);
+    const filesArray = [
+      new File(
+        [blob],
+        'meme.jpg',
+        {
+          type: "image/jpeg",
+          lastModified: new Date().getTime()
+        }
+      )
+    ];
+    console.log(filesArray)
+    const shareData = {
+      files: filesArray,
+    };
+    navigator.share(shareData);
   }
-  return(
+  return (
     <>
-    <div className="exampleContents">
-            <h1>Sharing an Image in whats app</h1>
-      {/* <img src="https://picsum.photos/200/300" alt='Nacho Libre saying "take it easy"' /> */}
-       {/* <a href="https://github.com/benkaiser/web-share-images/blob/master/src/examples/WebShareImage.tsx" className="pure-button share-button">View Code</a> */}
-     </div>
-     <div className="card" id="capture">
-  {/* <img className="card-img-top" src="https://picsum.photos/200/300" alt="Card image cap" /> */}
-  <Image
-     
-      src="https://picsum.photos/200/300"
-      alt="Picture of the author"
-      width={100}
-      height={100}
-    />
-  <div className="card-body">
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-       <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button>
+      <div className='exampleContents'>
+        <h1>Sharing an Image in whats app</h1>
+      </div>
+      <div className="card" id="capture">
+        <img className="card-img-top" src="https://picsum.photos/200/300" alt="Card image cap" />
+
+        <div className="card-body">
+          <h5 className="card-title">Card title</h5>
+          <p className="card-text">avadhsfasflk;as  fsfjasklfj klfjklasjfjasl</p>
+          <a href="#" className="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      {/* <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button> */}
     </>
   )
 }
