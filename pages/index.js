@@ -143,7 +143,14 @@ const Home = () => {
     const shareData = {
       files: filesArray,
     };
-    navigator.share(shareData);
+    try {
+      // console.log(window.navigator.share);
+     // await navigator.share({ files, title, text, url });
+      await navigator.share(shareData);
+      logText("Successfully sent share");
+    } catch (error) {
+      logError("Error sharing: " + error);
+    }
   }
   return (
     <>
