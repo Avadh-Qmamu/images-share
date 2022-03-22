@@ -118,8 +118,8 @@ const Home = () => {
       const text_input = document.querySelector("#text");
       const url_input = document.querySelector("#url");
       /** @type {HTMLInputElement} */
-      const file_input = document.querySelector("#files");
-
+      // const file_input = document.querySelector("#files");
+const file_input = "https://picsum.photos/200/300"
       const title = title_input.disabled ? undefined : title_input.value;
       const text = text_input.disabled ? undefined : text_input.value;
       const url = url_input.disabled ? undefined : url_input.value;
@@ -175,13 +175,13 @@ const Home = () => {
         .querySelector("#url_checkbox")
         .addEventListener("click", checkboxChanged);
 
-      document.querySelector("#share").addEventListener("click", testWebShare);
+      //document.querySelector("#share").addEventListener("click", testWebShare);
       document
         .querySelector("#share-no-gesture")
         .addEventListener("click", testWebShareDelay);
 
-      //   console.log(navigator.share);
-      //   console.log(window.location.protocol);
+        console.log(navigator.share);
+        console.log(window.location.protocol);
       if (window.navigator.share === undefined) {
         setShareButtonsEnabled(false);
         if (window.location.protocol === "http:") {
@@ -206,7 +206,7 @@ const Home = () => {
         <tr>
           <td>Title:</td>
           <td>
-            <input type="checkbox" id="title_checkbox" checked />
+            <input type="checkbox" id="title_checkbox"  />
           </td>
           <td>
             <input id="title" value="The Title" size="40" />
@@ -215,7 +215,7 @@ const Home = () => {
         <tr>
           <td>Text:</td>
           <td>
-            <input type="checkbox" id="text_checkbox" checked />
+            <input type="checkbox" id="text_checkbox"  />
           </td>
           <td>
             <input id="text" value="The message" size="40" />
@@ -224,19 +224,19 @@ const Home = () => {
         <tr>
           <td>URL:</td>
           <td>
-            <input type="checkbox" id="url_checkbox" checked />
+            <input type="checkbox" id="url_checkbox"  />
           </td>
           <td>
             <input id="url" value="https://example.com" size="40" />
           </td>
         </tr>
-        <tr>
+        {/* <tr>
           <td>Files:</td>
           <td></td>
           <td>
             <input id="files" type="file" multiple />
           </td>
-        </tr>
+        </tr> */}
       </table>
       <p>
         <input id="share" type="button" value="Share" />{" "}
