@@ -70,6 +70,7 @@
 // import React from "react";
 
 import React from 'react';
+import html2canvas from "html2canvas";
 
 // interface IWebShareImageProps {}
 
@@ -101,7 +102,30 @@ import React from 'react';
 const Home = () => {
   //interface IWebShareImageProps {}
   const onShare = async() => {
-    const response = await fetch('home/avadh/Downloads/one.jpeg');
+
+    ///creating images
+    const element = document.getElementById("capture");
+    const canvas = await html2canvas(element, { useCORS: true });
+
+    const data = canvas.toDataURL("image/jpg");
+   // const link = document.createElement("a");
+  //  const response = await fetch(data);
+  //  const blob = await response.blob();
+  //  console.log(blob)
+    // if (typeof link.download === "number") {
+    //   console.log(data);
+    //   link.href = data;
+    //   link.download = "image.jpg";
+
+    //   document.body.appendChild(link);
+    //   link.click();
+    //   document.body.removeChild(link);
+    // } else {
+    //   window.open(data);
+    // }
+  
+
+    const response = await fetch(data);
   const blob = await response.blob();
   console.log(blob);
   const filesArray = [
@@ -124,10 +148,18 @@ const Home = () => {
     <>
     <div className="exampleContents">
             <h1>Sharing an Image</h1>
-      <img src="https://picsum.photos/200/300" alt='Nacho Libre saying "take it easy"' />
-       <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button>
+      {/* <img src="https://picsum.photos/200/300" alt='Nacho Libre saying "take it easy"' /> */}
        {/* <a href="https://github.com/benkaiser/web-share-images/blob/master/src/examples/WebShareImage.tsx" className="pure-button share-button">View Code</a> */}
      </div>
+     <div className="card" id="capture">
+  <img className="card-img-top" src="https://picsum.photos/200/300" alt="Card image cap" />
+  <div className="card-body">
+    <h5 className="card-title">Card title</h5>
+    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" className="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+       <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button>
     </>
   )
 }
