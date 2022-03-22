@@ -147,7 +147,7 @@ const Home = () => {
   return(
     <>
     <div className="exampleContents">
-            <h1>Sharing an Image</h1>
+            <h1>Sharing an Image in whats app</h1>
       {/* <img src="https://picsum.photos/200/300" alt='Nacho Libre saying "take it easy"' /> */}
        {/* <a href="https://github.com/benkaiser/web-share-images/blob/master/src/examples/WebShareImage.tsx" className="pure-button share-button">View Code</a> */}
      </div>
